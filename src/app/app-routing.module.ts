@@ -6,6 +6,7 @@ import { HomeComponent } from './core/components/home/home.component';
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'home', component: HomeComponent }
+  // { path: '**', redirectTo: 'home' }//esto me redirecciona a home si no hay nada en la ruta
 ];
 
 @NgModule({
