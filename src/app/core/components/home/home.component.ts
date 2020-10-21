@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PublicationsService } from 'src/app/shared/services/publications.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   publications: Object[];
-  constructor() {
-    this.publications = [
-      { name: 'Pepe', publication: 'Esta es la publicación de Pepe' },
-      { name: 'Maria', publication: 'Esta es la publicación de Maria' }];
+  constructor(private publicationService: PublicationsService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {//se inicializa justo despues del constructor
+    console.log(this.publicationService.getPublications());
+    this.publications = this.publicationService.getPublications();
   }
 
 }
